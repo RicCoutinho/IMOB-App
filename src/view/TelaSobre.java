@@ -42,7 +42,7 @@ public class TelaSobre extends javax.swing.JFrame {
 
         jLabel1.setText("Beta system Version 0.0.0");
 
-        jLabel2.setText("© Copyright 2019 Ricardo Cotuinho Fonte & Wellington de Araújo Dias Júnior.");
+        jLabel2.setText("© Copyright 2019 Ricardo Cotuinho Fonte & Wellington de Araujo Dias Junior.");
 
         jLabel3.setText(" All Rights Reserved - Imob™");
 

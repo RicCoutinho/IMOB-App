@@ -27,8 +27,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,7 +51,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plus.png"))); // NOI18N
         jMenuItem3.setText("Cadastrar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/list.png"))); // NOI18N
+        jMenuItem5.setText("Listar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/magnifier.png"))); // NOI18N
         jMenuItem4.setText("Pesquisar");
@@ -61,9 +75,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("jMenuItem5");
-        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
@@ -124,6 +135,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
 
     }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TelaListaClientes tlc = new TelaListaClientes();
+        tlc.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaRegistroCliente Tc = new TelaRegistroCliente();
+        Tc.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
   
     public static void main(String args[]) {

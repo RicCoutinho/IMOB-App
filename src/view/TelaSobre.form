@@ -102,7 +102,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xa9; Copyright 2019 Ricardo Cotuinho Fonte &amp; Wellington de Ara&#xfa;jo Dias J&#xfa;nior."/>
+            <Property name="text" type="java.lang.String" value="&#xa9; Copyright 2019 Ricardo Cotuinho Fonte &amp; Wellington de Araujo Dias Junior."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">

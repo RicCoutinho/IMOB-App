@@ -165,13 +165,11 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaLogin Tl = new TelaLogin();
         
         if(jTextFieldUser.getText().equals("admin") && jPasswordLogin.getText().equals("admin")){
-            
             Tp.setVisible(true);
-            
         }
         else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
-    }
+        }
         
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
