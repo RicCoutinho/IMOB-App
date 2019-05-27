@@ -44,6 +44,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPasswordLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordLoginKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jPasswordLoginKeyReleased(evt);
             }
@@ -170,8 +173,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jPasswordLoginKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordLoginKeyReleased
         
-        Command command = new LoginCommand(jTextFieldUser.getText(), new String(jPasswordLogin.getPassword()), this);
-        command.execute(); 
+        
         
     }//GEN-LAST:event_jPasswordLoginKeyReleased
 
@@ -180,6 +182,13 @@ public class TelaLogin extends javax.swing.JFrame {
  
         
     }//GEN-LAST:event_jButtonLoginKeyReleased
+
+    private void jPasswordLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordLoginKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            Command command = new LoginCommand(jTextFieldUser.getText(), new String(jPasswordLogin.getPassword()), this);
+        command.execute(); 
+        }
+    }//GEN-LAST:event_jPasswordLoginKeyPressed
 
     /**
      * @param args the command line arguments

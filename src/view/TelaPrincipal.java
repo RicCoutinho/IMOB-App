@@ -42,6 +42,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Desconectar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -145,6 +150,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaRegistroCliente Tc = new TelaRegistroCliente();
         Tc.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        this.setVisible(false);
+        new TelaLogin().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
   
     public static void main(String args[]) {

@@ -119,6 +119,7 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="jPasswordLogin">
           <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordLoginKeyPressed"/>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordLoginKeyReleased"/>
           </Events>
         </Component>
