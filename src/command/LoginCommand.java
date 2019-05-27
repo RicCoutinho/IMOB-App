@@ -3,6 +3,7 @@ package command;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.User;
+import view.TelaLogin;
 import repository.FakeUserRepository;
 import repository.IUserRepository;
 import view.TelaPrincipal;
@@ -22,6 +23,7 @@ public class LoginCommand extends Command {
     
     @Override
     public void execute() {
+        TelaLogin Tl = new TelaLogin();
         IUserRepository userRepository = FakeUserRepository.getInstance();
         User user = userRepository.getUser(this.username);
         
@@ -31,8 +33,8 @@ public class LoginCommand extends Command {
             String pass = new String(this.password);
             if (user.getPassword().equals(pass)) {
                 new TelaPrincipal().setVisible(true);
-                loginFrame.setVisible(false);
-                loginFrame.dispose();
+                Tl.setVisible(false);
+                Tl.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Senha incorreta.");
             }
