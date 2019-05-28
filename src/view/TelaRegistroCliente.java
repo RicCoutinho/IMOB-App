@@ -29,10 +29,14 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
             File file = new File("Clientes.txt");
             BufferedWriter writer =  new BufferedWriter(new FileWriter(file, true));
             
-            writer.write(nome + "*");
-            writer.write(nomeSindico + "*");
-            writer.write(endereco + "*");
-            writer.write(valor + "*\n");
+            if(!nomeTxt.getText().isEmpty())
+                writer.write(nome + "*");
+            if(!nomeSindicoTxt.getText().isEmpty())
+                writer.write(nomeSindico + "*");
+            if(!enderecoTxt.getText().isEmpty())
+                writer.write(endereco + "*");
+            if(!valorTxt.getText().isEmpty())
+                writer.write(valor + "*\n");
             writer.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Erro");
@@ -78,7 +82,7 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(102, 204, 0));
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("REGISTRAR");

@@ -135,10 +135,10 @@ public class TelaRegistro extends javax.swing.JFrame {
         boolean criado = userRepository.createUser(jTextField1.getText(), new String(jPasswordField1.getPassword()));
         if (criado) {
             this.setVisible(false);
-            Tl.setVisible(true);
+            //Tl.setVisible(true);
             this.dispose();
              JOptionPane.showMessageDialog(null, "Registrado com sucesso!");
-             
+            new TelaRegistro().setVisible(false);
             
         } else {
       
