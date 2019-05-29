@@ -30,13 +30,13 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
             BufferedWriter writer =  new BufferedWriter(new FileWriter(file, true));
             
             if(!nomeTxt.getText().isEmpty())
-                writer.write(nome + "*");
+                writer.write(nome + "£");
             if(!nomeSindicoTxt.getText().isEmpty())
-                writer.write(nomeSindico + "*");
+                writer.write(nomeSindico + "£");
             if(!enderecoTxt.getText().isEmpty())
-                writer.write(endereco + "*");
+                writer.write(endereco + "£");
             if(!valorTxt.getText().isEmpty())
-                writer.write(valor + "*\n");
+                writer.write(valor + "£\r\n");
             writer.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Erro");

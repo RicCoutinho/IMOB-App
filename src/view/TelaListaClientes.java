@@ -20,7 +20,7 @@ public class TelaListaClientes extends javax.swing.JFrame {
      * Creates new form TelaListaClientes
      */
     public TelaListaClientes() {
-        initComponents();
+        initComponents();        
     }
 
     /**
@@ -35,6 +35,7 @@ public class TelaListaClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabelaClientes = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,6 +66,13 @@ public class TelaListaClientes extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Clientes");
 
+        jButton1.setText("atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,6 +83,8 @@ public class TelaListaClientes extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 933, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
+                        .addGap(105, 105, 105)
+                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -82,7 +92,9 @@ public class TelaListaClientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
                 .addContainerGap())
@@ -92,32 +104,37 @@ public class TelaListaClientes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        importListaClientes();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
-//    void importListaClientes(){
-//        File file = new File("Clientes.txt");
-//        
-//        try {
-//            FileReader fr = new FileReader(file);
-//            BufferedReader reader = new BufferedReader(fr);
-//            DefaultTableModel model = (DefaultTableModel) jTabelaClientes.getModel();
-//            
-//            Object[] dadosCliente = reader.lines().toArray();
-//            String linha;
-//            String[] linhaTabela;
-//            
-//            for(int i = 0; i < dadosCliente.length; i++){
-//                linha = dadosCliente[i].toString().trim();
-//                linhaTabela = linha.split("*");
-//                model.addRow(dadosCliente);
-//            }    
-//        } catch (Exception ex) {
-//            Logger.getLogger(TelaListaClientes.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//    }
+    void importListaClientes(){
+        File file = new File("Clientes.txt");
+        
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            DefaultTableModel model = (DefaultTableModel) jTabelaClientes.getModel();
+            model.setNumRows(0);
+            
+            Object[] dadosCliente = reader.lines().toArray();
+            String linha;
+            //String[] linhaTabela;
+            
+            for(int i = 0; i < dadosCliente.length; i++){
+                linha = dadosCliente[i].toString().trim();
+                dadosCliente = linha.split("£");
+                model.addRow(dadosCliente);
+            }    
+        } catch (Exception ex) {
+            Logger.getLogger(TelaListaClientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -148,13 +165,13 @@ public class TelaListaClientes extends javax.swing.JFrame {
             public void run() {
                 new TelaListaClientes().setVisible(true);
                 
-                ControleCliente cl = new ControleCliente();
-                cl.importListaClientes();
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable jTabelaClientes;

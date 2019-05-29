@@ -1,6 +1,7 @@
 package view;
 
 import Utilities.FundoTela;
+import control.ControleCliente;
 import java.awt.GridLayout;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -144,6 +145,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         TelaListaClientes tlc = new TelaListaClientes();
         tlc.setVisible(true);
+//        ControleCliente cc = new ControleCliente();
+//        cc.importListaClientes();
+        tlc.importListaClientes();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed

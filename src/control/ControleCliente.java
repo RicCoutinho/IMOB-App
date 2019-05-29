@@ -27,6 +27,7 @@ public class ControleCliente {
             FileReader fr = new FileReader(file);
             BufferedReader reader = new BufferedReader(fr);
             DefaultTableModel model = (DefaultTableModel) tlc.jTabelaClientes.getModel();
+            model.setNumRows(0);
             
             Object[] dadosCliente = reader.lines().toArray();
             String linha;
@@ -34,7 +35,7 @@ public class ControleCliente {
             
             for(int i = 0; i < dadosCliente.length; i++){
                 linha = dadosCliente[i].toString().trim();
-                linhaTabela = linha.split("*");
+                linhaTabela = linha.split(";");
                 model.addRow(dadosCliente);
             }    
         } catch (Exception ex) {
