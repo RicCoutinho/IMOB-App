@@ -38,6 +38,7 @@ public class TelaListaClientes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jTabelaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
