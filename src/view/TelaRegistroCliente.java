@@ -83,10 +83,10 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 0));
+        jButton1.setBackground(new java.awt.Color(255, 204, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("REGISTRAR");
+        jButton1.setText("EDITAR");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -132,11 +132,10 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel3)
-                        .addComponent(valorTxt)
-                        .addComponent(jLabel2)
-                        .addComponent(enderecoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(valorTxt)
+                    .addComponent(jLabel2)
+                    .addComponent(enderecoTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                     .addComponent(jLabel1)
                     .addComponent(nomeTxt)
                     .addComponent(nomeSindicoTxt)
@@ -200,7 +199,7 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-       
+        /*
             String nome = nomeTxt.getText().toString();
             String nomeSindico = nomeSindicoTxt.getText().toString();
             String endereco = enderecoTxt.getText().toString();
@@ -213,8 +212,9 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
             enderecoTxt.setText("");
             valorTxt.setText("");     
             JOptionPane.showMessageDialog(null, "Cliente registrado com sucesso!");
-            
-         
+        */
+        
+           
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

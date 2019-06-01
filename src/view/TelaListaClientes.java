@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import control.ControleCliente;
+//import control.ControleCliente;
 
 /**
  *
@@ -57,12 +57,6 @@ public class TelaListaClientes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTabelaClientes);
-        if (jTabelaClientes.getColumnModel().getColumnCount() > 0) {
-            jTabelaClientes.getColumnModel().getColumn(0).setHeaderValue("Nome");
-            jTabelaClientes.getColumnModel().getColumn(1).setHeaderValue("Nome do Sindico");
-            jTabelaClientes.getColumnModel().getColumn(2).setHeaderValue("Endereço");
-            jTabelaClientes.getColumnModel().getColumn(3).setHeaderValue("Valor do Contrato");
-        }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Clientes");

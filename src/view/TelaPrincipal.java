@@ -1,7 +1,7 @@
 package view;
 
 import Utilities.FundoTela;
-import control.ControleCliente;
+//import control.ControleCliente;
 import java.awt.GridLayout;
 
 public class TelaPrincipal extends javax.swing.JFrame {
@@ -132,7 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        TelaRegistroCliente Tc = new TelaRegistroCliente();
+        TelaRegistroListagem Tc = new TelaRegistroListagem();
         Tc.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

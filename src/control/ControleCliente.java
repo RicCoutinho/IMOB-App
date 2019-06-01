@@ -17,7 +17,7 @@ import view.TelaListaClientes;
  *
  * @author Wellington Junior
  */
-public class ControleCliente {
+/*public class ControleCliente {
     TelaListaClientes tlc = new TelaListaClientes();
     
     public void importListaClientes(){
@@ -43,4 +43,4 @@ public class ControleCliente {
         }
         
     }
-}
+}*/
