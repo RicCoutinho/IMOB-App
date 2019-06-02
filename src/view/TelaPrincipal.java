@@ -59,7 +59,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/list.png"))); // NOI18N
-        jMenuItem5.setText("Listar");
+        jMenuItem5.setText("Despezas");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -124,11 +124,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        TelaListaClientes tlc = new TelaListaClientes();
+        TelaDespezas tlc = new TelaDespezas();
         tlc.setVisible(true);
 //        ControleCliente cc = new ControleCliente();
 //        cc.importListaClientes();
-        tlc.importListaClientes();
+       // tlc.importListaClientes();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
