@@ -1,7 +1,7 @@
 //TODO
 
 - CORREÇAO DE BUGS
-    - opçao desconectar abre mais uma tela de login
+    - 
 
 - MELHORIAS
     - habilitar tecla enter nas telas de registro de usuario e registro de clientes para finalizar o processo

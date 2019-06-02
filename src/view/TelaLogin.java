@@ -13,11 +13,7 @@ public class TelaLogin extends javax.swing.JFrame {
     
     
     public TelaLogin() {
-       
-        initComponents();
-       
-        
-  
+        initComponents(); 
     }
 
     @SuppressWarnings("unchecked")
@@ -25,8 +21,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextFieldUser = new javax.swing.JTextField();
-        jPasswordLogin = new javax.swing.JPasswordField();
+        jTextLogin = new javax.swing.JTextField();
+        jTextSenha = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
         jLabelImgLogin = new javax.swing.JLabel();
         jLabelImgPassword = new javax.swing.JLabel();
@@ -43,12 +39,17 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPasswordLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextSenhaActionPerformed(evt);
+            }
+        });
+        jTextSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordLoginKeyPressed(evt);
+                jTextSenhaKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jPasswordLoginKeyReleased(evt);
+                jTextSenhaKeyReleased(evt);
             }
         });
 
@@ -105,8 +106,8 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addComponent(jLabelImgPassword)
                                 .addGap(14, 14, 14)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldUser)
-                            .addComponent(jPasswordLogin)))
+                            .addComponent(jTextLogin)
+                            .addComponent(jTextSenha)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -123,10 +124,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelImgLogin))
                         .addGap(37, 37, 37)
-                        .addComponent(jPasswordLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelImgPassword))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogin)
@@ -151,8 +152,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        Command command = new LoginCommand(jTextFieldUser.getText(), new String(jPasswordLogin.getPassword()), this);
+        Command command = new LoginCommand(jTextLogin.getText(), new String(jTextSenha.getPassword()), this);
         command.execute();
+        
+        jTextLogin.setText("");
+        jTextSenha.setText("");
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
@@ -171,24 +175,24 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseExited
 
-    private void jPasswordLoginKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordLoginKeyReleased
+    private void jTextSenhaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextSenhaKeyReleased
         
-        
-        
-    }//GEN-LAST:event_jPasswordLoginKeyReleased
+    }//GEN-LAST:event_jTextSenhaKeyReleased
 
     private void jButtonLoginKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonLoginKeyReleased
         
- 
-        
     }//GEN-LAST:event_jButtonLoginKeyReleased
 
-    private void jPasswordLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordLoginKeyPressed
+    private void jTextSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextSenhaKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            Command command = new LoginCommand(jTextFieldUser.getText(), new String(jPasswordLogin.getPassword()), this);
+            Command command = new LoginCommand(jTextLogin.getText(), new String(jTextSenha.getPassword()), this);
         command.execute(); 
         }
-    }//GEN-LAST:event_jPasswordLoginKeyPressed
+    }//GEN-LAST:event_jTextSenhaKeyPressed
+
+    private void jTextSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,8 +237,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelImgLogin;
     private javax.swing.JLabel jLabelImgPassword;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordLogin;
-    private javax.swing.JTextField jTextFieldUser;
+    private javax.swing.JTextField jTextLogin;
+    private javax.swing.JPasswordField jTextSenha;
     // End of variables declaration//GEN-END:variables
 
     

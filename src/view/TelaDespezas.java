@@ -5,6 +5,8 @@
  */
 package view;
 
+import command.FuncionarioDespezaCommand;
+import control.ControleFuncionario;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -37,10 +39,10 @@ public class TelaDespezas extends javax.swing.JFrame {
         funcionarioTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         valorTxt = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jAdicionar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jTotalTxt = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTCliente = new javax.swing.JTable();
@@ -59,10 +61,16 @@ public class TelaDespezas extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Salário");
 
-        jButton1.setText("Calcular");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        valorTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                valorTxtActionPerformed(evt);
+            }
+        });
+
+        jAdicionar.setText("Adicionar");
+        jAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAdicionarActionPerformed(evt);
             }
         });
 
@@ -75,7 +83,7 @@ public class TelaDespezas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
+                        .addComponent(jAdicionar)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
@@ -105,14 +113,23 @@ public class TelaDespezas extends javax.swing.JFrame {
                     .addComponent(funcionarioTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(valorTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jAdicionar)
                 .addContainerGap())
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("Total:");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0"))));
+        jTotalTxt.setEditable(false);
+        jTotalTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0"))));
+        jTotalTxt.setText("R$");
+        jTotalTxt.setAlignmentX(0.1F);
+        jTotalTxt.setAlignmentY(0.1F);
+        jTotalTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTotalTxtActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -121,8 +138,8 @@ public class TelaDespezas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jTotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -130,8 +147,8 @@ public class TelaDespezas extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                    .addComponent(jTotalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 13, Short.MAX_VALUE))
         );
 
         jTCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -190,11 +207,31 @@ public class TelaDespezas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
-        Object[] dados = {nomeTxt.getText() , funcionarioTxt.getText() , valorTxt.getText()};
-        dtmCliente.addRow(dados);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAdicionarActionPerformed
+        FuncionarioDespezaCommand fdc = new FuncionarioDespezaCommand();
+
+        DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
+        if(!nomeTxt.getText().isEmpty() && !funcionarioTxt.getText().isEmpty() && !valorTxt.getText().isEmpty() ){
+            Object[] dados = {nomeTxt.getText() , funcionarioTxt.getText() , valorTxt.getText()};
+            dtmCliente.addRow(dados);
+        }
+        
+        nomeTxt.setText("");
+        funcionarioTxt.setText("");
+        valorTxt.setText("");
+        
+        //fdc.setTotal().String.valueOf(number);
+        
+        //jTotalTxt.setText(Double.toString(fdc.getTotal()));
+    }//GEN-LAST:event_jAdicionarActionPerformed
+
+    private void jTotalTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTotalTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTotalTxtActionPerformed
+
+    private void valorTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valorTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,8 +270,7 @@ public class TelaDespezas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField funcionarioTxt;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JButton jAdicionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -245,6 +281,7 @@ public class TelaDespezas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTCliente;
+    private javax.swing.JFormattedTextField jTotalTxt;
     private javax.swing.JTextField nomeTxt;
     private javax.swing.JTextField valorTxt;
     // End of variables declaration//GEN-END:variables

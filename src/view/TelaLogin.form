@@ -72,8 +72,8 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldUser" max="32767" attributes="0"/>
-                              <Component id="jPasswordLogin" max="32767" attributes="0"/>
+                              <Component id="jTextLogin" max="32767" attributes="0"/>
+                              <Component id="jTextSenha" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -97,11 +97,11 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTextFieldUser" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextLogin" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelImgLogin" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jPasswordLogin" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextSenha" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabelImgPassword" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -115,12 +115,13 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextFieldUser">
+        <Component class="javax.swing.JTextField" name="jTextLogin">
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordLogin">
+        <Component class="javax.swing.JPasswordField" name="jTextSenha">
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordLoginKeyPressed"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordLoginKeyReleased"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextSenhaActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextSenhaKeyPressed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextSenhaKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLogin">

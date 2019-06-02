@@ -206,16 +206,13 @@ public class TelaRegistroCliente extends javax.swing.JFrame {
             String valor = valorTxt.getText().toString();
         
             SalvarNovoCliente(nome, nomeSindico, endereco, valor);
-        
+        */
             nomeTxt.setText("");
             nomeSindicoTxt.setText("");
             enderecoTxt.setText("");
             valorTxt.setText("");     
-            JOptionPane.showMessageDialog(null, "Cliente registrado com sucesso!");
-        */
-        
-           
-        
+            //JOptionPane.showMessageDialog(null, "Cliente registrado com sucesso!");
+            
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked

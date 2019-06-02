@@ -1,8 +1,8 @@
 package control;
-import command.FuncionarioDespezaCommand;
+//import command.FuncionarioDespezaCommand;
 
 
-public abstract class ControleFuncionario {
+public class ControleFuncionario {
     
     double[] salario = new double[15];
     int i;
@@ -12,10 +12,9 @@ public abstract class ControleFuncionario {
     
     public double calcular(){
         for (i = 0; i < n; i ++){
-    
-        total = total + salario[i];  
-}
+            total = total + salario[i];  
+        }
         return total;
-        } 
+        }
     
     }

@@ -19,8 +19,6 @@ public class FuncionarioDespezaCommand extends Command {
 
     public void setFuncionario(String[] funcionario, int i) {
         
-        
-        
     }
 
     public double[] getSalario() {
@@ -39,16 +37,22 @@ public class FuncionarioDespezaCommand extends Command {
         this.nomeCliente = nomeCliente;
     }
     
+    public void setTotal(){
     
+    }
     
+    public double getTotal(double total){
+        
+        
+        ControleFuncionario cf = new ControleFuncionario();
+        
+        return cf.calcular();
+    }
     
-    
+
     @Override
     public void execute() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-  
-    
-    
+
 }
