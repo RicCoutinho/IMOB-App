@@ -20,6 +20,14 @@ public class TelaDespezas extends javax.swing.JFrame {
      */
     public TelaDespezas() {
         initComponents();
+        
+        DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
+        
+        for (Object[] funcionario : controleFuncionario.getFuncionarios()) {
+            dtmCliente.addRow(funcionario);
+        }
+        
+        jTotalTxt.setText(String.valueOf(controleFuncionario.calcularTotal()));
     }
 
     /**
@@ -207,18 +215,23 @@ public class TelaDespezas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private final ControleFuncionario controleFuncionario = new ControleFuncionario();
+    
     private void jAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAdicionarActionPerformed
         FuncionarioDespezaCommand fdc = new FuncionarioDespezaCommand();
 
         DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
         if(!nomeTxt.getText().isEmpty() && !funcionarioTxt.getText().isEmpty() && !valorTxt.getText().isEmpty() ){
-            Object[] dados = {nomeTxt.getText() , funcionarioTxt.getText() , valorTxt.getText()};
+            Object[] dados = {nomeTxt.getText() , funcionarioTxt.getText() , Double.parseDouble(valorTxt.getText())};
+            controleFuncionario.salvarFuncionario(dados);
             dtmCliente.addRow(dados);
         }
         
         nomeTxt.setText("");
         funcionarioTxt.setText("");
         valorTxt.setText("");
+        
+        jTotalTxt.setText(String.valueOf(controleFuncionario.calcularTotal()));
         
         //fdc.setTotal().String.valueOf(number);
         

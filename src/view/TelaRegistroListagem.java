@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -15,6 +16,7 @@ import javax.swing.table.TableRowSorter;
  */
 public class TelaRegistroListagem extends javax.swing.JFrame {
 
+    private static ArrayList<Object[]> arrayList = new ArrayList();
     /**
      * Creates new form TelaRegistroListagem
      */
@@ -23,6 +25,11 @@ public class TelaRegistroListagem extends javax.swing.JFrame {
         
         DefaultTableModel modelo = (DefaultTableModel) jTCliente.getModel();
         jTCliente.setRowSorter(new TableRowSorter(modelo));
+        
+        DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
+        for (Object[] dados : arrayList) {
+            dtmCliente.addRow(dados);
+        }
     }
 
     /**
@@ -152,6 +159,11 @@ public class TelaRegistroListagem extends javax.swing.JFrame {
                 jTClienteMouseClicked(evt);
             }
         });
+        jTCliente.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTClienteComponentShown(evt);
+            }
+        });
         jTCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTClienteKeyReleased(evt);
@@ -228,10 +240,9 @@ public class TelaRegistroListagem extends javax.swing.JFrame {
         
         DefaultTableModel dtmCliente = (DefaultTableModel) jTCliente.getModel();
         Object[] dados = {txtNome.getText() , txtEndereco.getText() , txtSindico.getText() , txtValor.getText()};
+        
+        arrayList.add(dados);
         dtmCliente.addRow(dados);
-        
-        
-        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -284,6 +295,11 @@ public class TelaRegistroListagem extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTClienteComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTClienteComponentShown
+           
+
+    }//GEN-LAST:event_jTClienteComponentShown
 
     /**
      * @param args the command line arguments
