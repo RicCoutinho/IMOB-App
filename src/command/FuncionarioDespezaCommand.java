@@ -46,7 +46,7 @@ public class FuncionarioDespezaCommand extends Command {
         
         ControleFuncionario cf = new ControleFuncionario();
         
-        return cf.calcular();
+        return cf.calcularTotal();
     }
     
 
